@@ -1,0 +1,12 @@
+
+{
+  "name": "VIVENT — Organize sua vida",
+  "short_name": "VIVENT",
+  "description": "Organize suas tarefas, ideias e seu diário pessoal.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#17142b",
+  "theme_color": "#17142b",
+  "icons": []
+}
