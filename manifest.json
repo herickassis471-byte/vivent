@@ -9,16 +9,7 @@
   "display": "standalone",
   "background_color": "#17142b",
   "theme_color": "#17142b",
-  "icons": [,
-"screenshots": [
-  {
-    "src": "https://raw.githubusercontent.com/herickassis471-byte/vivent/main/Captura%20de%20Tela%20(6).png",
-    "sizes": "1366x768",
-    "type": "image/png",
-    "form_factor": "wide",
-    "label": "Tela do VIVENT"
-  }
-]
+  "icons": [
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
