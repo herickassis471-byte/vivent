@@ -2,7 +2,7 @@
 {
   "name": "VIVENT — Organize sua vida",
   "short_name": "VIVENT",
-  "description": "Organize suas tarefas, ideias e seu diário pessoal.",
+  "description": "Organize tarefas, ideias e seu diário pessoal.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -13,7 +13,7 @@
       "src": "./icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
