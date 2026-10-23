@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#17142b">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b0b14">
@@ -18,6 +20,13 @@ button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-vis
 @media(max-width:560px){.app{padding:15px 13px 100px}.topbar{margin-bottom:17px}.brand h1{font-size:18px}.brand small{font-size:10px}.top-actions .ghost-btn{display:none}.nav{display:none}.hero{padding:22px 18px;border-radius:21px}.hero-row{align-items:flex-start;flex-direction:column}.hero-date{margin-bottom:15px}.hero h2{font-size:29px}.stats{gap:9px}.stat{padding:14px}.stat-num{font-size:24px}.stat-icon{width:28px;height:28px}.card{padding:15px;border-radius:17px}.idea-grid{grid-template-columns:1fr 1fr;gap:9px}.idea{padding:13px;min-height:185px}.idea h3{font-size:13px}.idea p{font-size:11px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.mobile-nav{display:flex;position:fixed;z-index:30;bottom:0;left:0;right:0;justify-content:space-around;gap:2px;padding:9px 5px calc(9px + env(safe-area-inset-bottom));background:#0c0d17ed;backdrop-filter:blur(18px);border-top:1px solid #2a2c40}.mobile-nav button{background:transparent;border:0;color:#858aa7;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9px;padding:6px 8px;min-width:54px}.mobile-nav button span{font-size:19px}.mobile-nav button.active{color:#c8baff}.quick-input{flex-wrap:wrap}.quick-input input{flex-basis:65%}.quick-input .primary{flex:1}.footer{padding-bottom:8px}}
 </style>
 </head>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js");
+  });
+}
+</script>
 <body>
 <div class="app">
   <header class="topbar">
