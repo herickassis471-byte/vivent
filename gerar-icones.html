@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerador de ícones VIVENT</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #17142b;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+button {
+  padding: 14px 20px;
+  margin: 10px;
+  border: 0;
+  border-radius: 12px;
+  background: #8b5cf6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1>VIVENT 💜</h1>
+<p>Gerador oficial dos ícones do aplicativo</p>
+<canvas id="icone" width="512" height="512"
+style="width:180px;height:180px;border-radius:20px"></canvas>
+<br>
+<button onclick="baixar(192)">Baixar ícone 192×192</button>
+<button onclick="baixar(512)">Baixar ícone 512×512</button>
+
+<script>
+const c = document.getElementById("icone");
+const ctx = c.getContext("2d");
+
+function desenhar() {
+  ctx.clearRect(0, 0, 512, 512);
+  ctx.fillStyle = "#17142b";
+  ctx.fillRect(0, 0, 512, 512);
+
+  const grad = ctx.createLinearGradient(55, 55, 457, 457);
+  grad.addColorStop(0, "#8b5cf6");
+  grad.addColorStop(1, "#2563eb");
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(55, 55, 402, 402, 85);
+  ctx.fill();
+
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.moveTo(130, 160);
+  ctx.lineTo(200, 160);
+  ctx.lineTo(256, 302);
+  ctx.lineTo(312, 160);
+  ctx.lineTo(382, 160);
+  ctx.lineTo(300, 355);
+  ctx.lineTo(230, 355);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "#a5f3fc";
+  ctx.beginPath();
+  ctx.arc(355, 350, 28, 0, Math.PI * 2);
+  ctx.fill();
+}
+desenhar();
+
+function baixar(tamanho) {
+  const temp = document.createElement("canvas");
+  temp.width = tamanho;
+  temp.height = tamanho;
+  temp.getContext("2d").drawImage(c, 0, 0, tamanho, tamanho);
+
+  const link = document.createElement("a");
+  link.download = tamanho === 192 ? "icon-192.png" : "icon-512.png";
+  link.href = temp.toDataURL("image/png");
+  link.click();
+}
+</script>
+</body>
+</html>
