@@ -1,9 +1,11 @@
 
-const CACHE = "vivent-v1";
+const CACHE = "vivent-v2";
+
 const ARQUIVOS = [
   "./",
   "./index.html",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon.svg"
 ];
 
 self.addEventListener("install", evento => {
@@ -16,7 +18,13 @@ self.addEventListener("install", evento => {
 
 self.addEventListener("activate", evento => {
   evento.waitUntil(
-    self.clients.claim()
+    caches.keys().then(chaves =>
+      Promise.all(
+        chaves
+          .filter(chave => chave !== CACHE)
+          .map(chave => caches.delete(chave))
+      )
+    ).then(() => self.clients.claim())
   );
 });
 
@@ -27,9 +35,11 @@ self.addEventListener("fetch", evento => {
     caches.match(evento.request).then(guardado => {
       if (guardado) return guardado;
 
-      return fetch(evento.request).catch(() =>
-        caches.match("./index.html")
-      );
+      return fetch(evento.request).catch(() => {
+        if (evento.request.mode === "navigate") {
+          return caches.match("./index.html");
+        }
+      });
     })
   );
 });
